@@ -7,7 +7,7 @@ typedef struct
 
 int isEmpty(stack* s)
 {
-    if(s->top==0)
+    if(s->top<=0)
         return 1;
     else
         return 0;

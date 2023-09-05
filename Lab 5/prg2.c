@@ -25,20 +25,34 @@ int main()
 	s.size=MAX;
 	//s.size = findLength(n);
 	s.arr[s.size];
-	printf("%d\n", s.top);
+	//printf("%d\n", s.top);
 	while(n>=1)
 	{
 		push(&s,n%2);
 		n/=2;
-		printf("%d ", s.top);
+		//printf("%d ", s.top);
 	}
-	show(&s);
-	printf("%d", s.top);
+	//show(&s);
+	//printf("%d", s.top);
 	int res=0;
-	while(s.top>=1)
+	for(int i=s.top-1; i>=0; i--)
 	{
-		res = res*10 + pop(&s);
+		printf("%d", s.arr[i]);
 	}
+	printf("\n");
+	while(!isEmpty(&s))
+	{
+		printf("%d",pop(&s));
+	}
+	/*while(s.top>=0)
+	{
+		int d = pop(&s);
+		if(d==-1)
+		{
+			continue;
+		}
+		res = res*10 + d;
+	}*/
 	printf("\nHello : %d", res);
 	/*while(s.top>=0)
 	{
