@@ -15,7 +15,7 @@ int isEmpty(stack* s)
 
 int isFull(stack* s)
 {
-    if(s->top>=s->size)
+    if(s->top==s->size)
         return 1;
     else
         return 0;
@@ -26,6 +26,10 @@ void push(stack* s, char data)
     if(!isFull(s))
     {
         (s)->arr[(s)->top++]=data;
+    }
+    else{
+        printf("Stack overflow\n");
+        exit(0);
     }
 }
 
