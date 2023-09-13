@@ -23,40 +23,34 @@ int main()
 	printf("Enter the decimal number\n");
 	scanf("%d", &n);
 	s.size=MAX;
-	//s.size = findLength(n);
 	s.arr[s.size];
-	//printf("%d\n", s.top);
-	while(n>=1)
+	s.top=0;
+	while(n>0)
 	{
-		push(&s,n%2);
+		int r = n%2;
+		printf("%d ",r);
+		push(&s,r);
 		n/=2;
-		//printf("%d ", s.top);
 	}
-	//show(&s);
-	//printf("%d", s.top);
 	int res=0;
 	for(int i=s.top-1; i>=0; i--)
 	{
 		printf("%d", s.arr[i]);
 	}
 	printf("\n");
-	while(!isEmpty(&s))
-	{
-		printf("%d",pop(&s));
-	}
-	/*while(s.top>=0)
+	/* while(s.top>=0)
 	{
 		int d = pop(&s);
 		if(d==-1)
 		{
 			continue;
 		}
-		res = res*10 + d;
-	}*/
-	printf("\nHello : %d", res);
-	/*while(s.top>=0)
+		res = res*10+d;
+	}
+	printf("\nHello : %d", res); */
+	while(!isEmpty(&s))
 	{
-		printf("%d",pop(&s));
-	}*/
+		printf("%d\n",pop(&s));
+	}
 	return 0;
 }

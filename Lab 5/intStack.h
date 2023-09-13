@@ -7,7 +7,7 @@ typedef struct
 
 int isEmpty(stack* s)
 {
-    if(s->top<=0)
+    if(s->top<0)
         return 1;
     else
         return 0;
@@ -29,7 +29,8 @@ void push(stack* s, int data)
     }
     else
     {
-        s->arr[s->top++]=data;
+        s->arr[s->top]=data;
+        s->top++;
     }
 }
 
@@ -40,7 +41,8 @@ int pop(stack* s)
         printf("Stack underflow\n");
         return -1;
     }
-    return (s)->arr[--(s)->top];
+    --s->top;
+    return s->arr[s->top];
 }
 
 void show(stack* s)
