@@ -30,15 +30,17 @@ int isEmpty(queue q)
     return 0;
 }
 
-void insertcq(queue q, char* str)
+void insertcq(queue q, char input[100])
 {
     if(!isFull(q))
     {
-        printf("Argument passed : %s\nRear : %d", str,q->rear);
+        char* str;
+        strcpy(str,input);
+        printf("%d\n",q->rear);
         q->rear = (q->rear+1)%q->size;
-        q->arr[q->rear] = (char*)malloc(strlen(str)*sizeof(char));
-        printf("space created\n");
+        q->arr[q->rear] = (char*)calloc(strlen(str),sizeof(char));
         q->arr[q->rear]=str;
+        printf("%d\n",q->rear);
     }
     else{
         printf("Queue is full\n");
@@ -76,7 +78,7 @@ int main()
     q->front=q->rear=-1;
     q->arr = (char**)malloc(n*sizeof(char*));
     int flag=1;
-    char data[100];
+    char input[100];
     char* d;
     while(flag)
     {
@@ -86,8 +88,8 @@ int main()
         switch(ch)
         {
             case 1: printf("Enter data to enter : ");
-                    scanf("%s", &data);
-                    insertcq(q,data);
+                    scanf("%s", input);
+                    insertcq(q,input);
                     displaycq(q);
                     break;
 
